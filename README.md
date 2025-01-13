@@ -52,7 +52,7 @@ Directory Structure
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/file-aggregator.git
+   git clone https://github.com/<your_username>/file-aggregator.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -62,9 +62,4 @@ Directory Structure
 ## Requirements
 - Python 3.6 or higher
 
-## Contributing
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
