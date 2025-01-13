@@ -15,9 +15,16 @@ The File Aggregator is a Python utility designed to search for files of specific
 
 The script accepts the following optional arguments:
 
-- `-d`, `--directory`: The directory to search. Defaults to the current working directory.
-- `-t`, `--types`: A list of file types (extensions) to include (e.g., `txt`, `py`, `yml`). Defaults to `['py', 'txt', 'yml']`.
-- `-o`, `--output`: The path to the output file. Defaults to `concatenated_project.txt` in the current working directory.
+- `-d`, `--directory`
+   - The directory to search.
+   - Defaults to the current working directory.
+- `-t`, `--types`
+   - A list of file types (extensions) to include
+   - e.g., `txt`, `py`, `yml`.
+   - Defaults to `['py', 'txt', 'yml', 'Dockerfile', 'init.sql']`.
+- `-o`, `--output`
+   - The path to the output file.
+   - Defaults to `concatenated_project.txt` in the current working directory.
 
 ### Example
 ```bash
