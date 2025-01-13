@@ -69,7 +69,7 @@ def create_aggregated_file(files_by_type, output_file):
                 try:
                     with open(file_path, 'r', encoding='utf-8') as in_file:
                         content = in_file.read()
-                        out_file.write("-" * 100 + "\n")
+                        out_file.write("-" * 60 + "\n")
                         out_file.write(f"File Path = {file_path}\n")
                         out_file.write(f"File Name = {os.path.basename(file_path)}\n\n")
                         out_file.write(content + "\n")
@@ -92,7 +92,7 @@ def append_directory_structure(file_paths, base_path, output_file):
         contents = [
             name for name in os.listdir(path)
             if (os.path.join(path, name) in file_paths or os.path.isdir(os.path.join(path, name)))
-               and ".git" not in name and ".idea" not in name
+               and ".git" not in name and ".idea" not in name and ".terraform" not in name
         ]
         pointers = ["├── "] * (len(contents) - 1) + ["└── "]
         for pointer, name in zip(pointers, contents):
@@ -104,7 +104,7 @@ def append_directory_structure(file_paths, base_path, output_file):
                 walk_dir(full_path, prefix=prefix + extension)
 
     with open(output_file, 'a', encoding='utf-8') as out_file:
-        out_file.write("-" * 30 + "\n")
+        out_file.write("-" * 60 + "\n")
         out_file.write("Directory Structure\n")
     walk_dir(base_path)
 
@@ -113,7 +113,7 @@ def main():
     args = parse_arguments()
 
     directory = args.directory if args.directory else os.getcwd()
-    file_types = args.types if args.types else ['py', 'txt', 'yml', 'Dockerfile', 'init.sql']
+    file_types = args.types if args.types else ['py', 'txt', 'yml', 'Dockerfile', 'init.sql', 'README.md', 'tf']
     output_file = args.output if args.output else os.path.join(os.getcwd(), 'concatenated_project.txt')
 
     # Exclude the output file and the script file itself
