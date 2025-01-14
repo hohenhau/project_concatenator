@@ -21,7 +21,7 @@ The script accepts the following optional arguments:
 - `-t`, `--types`
    - A list of file types (extensions) to include
    - e.g., `txt`, `py`, `yml`.
-   - Defaults to `['py', 'txt', 'yml', 'Dockerfile', 'init.sql']`.
+   - Defaults to `['py', 'txt', 'yml', 'Dockerfile', 'init.sql', 'README.md', 'tf']`.
 - `-o`, `--output`
    - The path to the output file.
    - Defaults to `concatenated_project.txt` in the current working directory.
