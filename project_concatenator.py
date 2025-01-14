@@ -4,6 +4,7 @@ import argparse
 # Directories to exclude anywhere in the path
 EXCLUDED_DIRS = {".git", ".idea", ".terraform"}
 
+
 def has_excluded_dir(path_str: str, excluded_dirs: set) -> bool:
     """
     Returns True if any component of path_str matches
@@ -11,6 +12,7 @@ def has_excluded_dir(path_str: str, excluded_dirs: set) -> bool:
     """
     parts = os.path.abspath(path_str).split(os.sep)
     return any(part == ex for part in parts for ex in excluded_dirs)
+
 
 def parse_arguments():
     """
@@ -34,6 +36,7 @@ def parse_arguments():
         help="Path to the output file. Defaults to 'concatenated_project.txt' in the current directory."
     )
     return parser.parse_args()
+
 
 def search_files(base_path, file_types, exclude_files):
     """
@@ -71,6 +74,7 @@ def search_files(base_path, file_types, exclude_files):
 
     return files_by_type
 
+
 def create_aggregated_file(files_by_type, output_file):
     """
     Creates a new text file with the contents of all files in files_by_type.
@@ -91,6 +95,7 @@ def create_aggregated_file(files_by_type, output_file):
                         out_file.write(content + "\n")
                 except Exception as e:
                     out_file.write(f"Error reading {file_path}: {e}\n")
+
 
 def append_directory_structure(file_paths, base_path, output_file):
     """
@@ -134,6 +139,7 @@ def append_directory_structure(file_paths, base_path, output_file):
 
     walk_dir(base_path)
 
+
 def main():
     args = parse_arguments()
 
@@ -158,6 +164,7 @@ def main():
     append_directory_structure(all_files, directory, output_file)
 
     print(f"Aggregated file created at {output_file}")
+
 
 if __name__ == "__main__":
     main()
